@@ -91,6 +91,7 @@ private:
 - **Default Constructor**: Utilizes constructor delegation to assign default values and set the current GMT time.
 
 ## Member Functions
+**you may not alter or change these functions but you may and probably should add some keywords to them**
 
 ### Getter Functions
 
@@ -156,6 +157,7 @@ private:
 - **TextMessage Constructor**: Initializes the `Message` part of the object using the base class constructor and sets the `text` member with the provided string. It takes `text`, `sender`, and `receiver` as parameters, forwarding `sender` and `receiver` to the `Message` constructor.
 
 ## Member Functions
+**you may not alter or change these functions but you may and probably should add some keywords to them**
 
 ### Print Function
 
@@ -224,6 +226,7 @@ private:
 - **VoiceMessage Constructor**: Initializes the base part of the object (`Message` class) with the sender and receiver information. The `voice` vector is then filled with 5 random bytes. This demonstrates basic data manipulation and storage within an object.
 
 ## Member Functions
+**you may not alter or change these functions but you may and probably should add some keywords to them**
 
 ### Print Function
 
@@ -295,6 +298,7 @@ private:
 - **User Constructor**: Initializes the `username`, `private_key`, and `server`. This setup ensures that each user is linked to a specific server for message handling and has the necessary credentials for secure communication.
 
 ## Member Functions
+**you may not alter or change these functions but you may and probably should add some keywords to them**
 
 ### Getter Function
 
@@ -366,6 +370,7 @@ private:
 - **Default Constructor**: Initializes the server object. No specific actions are required upon instantiation beyond default initialization of member variables.
 
 ## Member Functions
+**you may not alter or change these functions but you may and probably should add some keywords to them**
 
 ### Getter Functions
 
