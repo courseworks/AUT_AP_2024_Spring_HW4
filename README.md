@@ -527,7 +527,7 @@ int main(int argc, char **argv)
 ```
 
 <p align="center">
-  <img src="" alt="" style="width: 60%;">
+  <img src="./Resource/True_Friendships.jpeg" alt="True Friendship" style="width: 60%;">
 </p>
 
 **Best Regards, [Hamidi](https://github.com/smhamidi)**
