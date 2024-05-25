@@ -11,7 +11,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(GTest REQUIRED)
 find_package(OpenSSL REQUIRED)
 
-
 include_directories(include/)
 
 add_executable(main
@@ -25,12 +24,12 @@ add_executable(main
 
 # Set compiler flags for C++.
 # -Wall, -Wextra, -Werror, and -Wpedantic are used for stricter warnings and error handling.
-set(CMAKE_CXX_FLAGS "-Wall -Wextra -Werror -Wpedantic")
-
+# Add -Wno-deprecated-declarations to suppress warnings for deprecated functions.
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -Wpedantic -Wno-deprecated-declarations")
 
 # Set compiler flags specific to the Release build type.
 # -O3 enables high-level optimizations.
-set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 ${CMAKE_CXX_FLAGS_RELEASE}")
 
 target_link_libraries(main
         GTest::GTest

@@ -1,57 +1,52 @@
 #ifndef CRYPTO_H
 #define CRYPTO_H
 
-#include <iostream>
-#include <string.h>
+#include <assert.h>
 #include <openssl/aes.h>
-#include <openssl/evp.h>
-#include <openssl/rsa.h>
-#include <openssl/pem.h>
-#include <openssl/ssl.h>
 #include <openssl/bio.h>
 #include <openssl/err.h>
-#include <assert.h>
+#include <openssl/evp.h>
+#include <openssl/pem.h>
+#include <openssl/rsa.h>
+#include <openssl/ssl.h>
+#include <string.h>
 
-namespace crypto{
+#include <iostream>
 
-  RSA* createPrivateRSA(std::string key);
+namespace crypto {
 
-  RSA* createPublicRSA(std::string key);
+RSA* createPrivateRSA(std::string key);
 
-  bool RSASign( RSA* rsa,
-                const unsigned char* Msg,
-                size_t MsgLen,
-                unsigned char** EncMsg,
-                size_t* MsgLenEnc);
+RSA* createPublicRSA(std::string key);
 
-  bool RSAVerifySignature( RSA* rsa,
-                          unsigned char* MsgHash,
-                          size_t MsgHashLen,
-                          const char* Msg,
-                          size_t MsgLen,
-                          bool* Authentic);
+bool RSASign(RSA* rsa, const unsigned char* Msg, size_t MsgLen,
+			 unsigned char** EncMsg, size_t* MsgLenEnc);
 
-  void Base64Encode( const unsigned char* buffer,
-                    size_t length,
-                    char** base64Text);
+bool RSAVerifySignature(RSA* rsa, unsigned char* MsgHash, size_t MsgHashLen,
+						const char* Msg, size_t MsgLen, bool* Authentic);
 
-  size_t calcDecodeLength(const char* b64input);
+void Base64Encode(const unsigned char* buffer, size_t length,
+				  char** base64Text);
 
-  void Base64Decode(const char* b64message, unsigned char** buffer, size_t* length);
+size_t calcDecodeLength(const char* b64input);
 
-  std::string signMessage(std::string privateKey, std::string plainText);
+void Base64Decode(const char* b64message, unsigned char** buffer,
+				  size_t* length);
 
-  bool verifySignature(std::string publicKey, std::string plainText, std::string signatureBase64);
+std::string signMessage(std::string privateKey, std::string plainText);
 
-  const char* keyFromRSA(RSA* rsa, bool isPrivate);
+bool verifySignature(std::string publicKey, std::string plainText,
+					 std::string signatureBase64);
 
-  void generate_key(std::string& public_key, std::string& private_key);
+const char* keyFromRSA(RSA* rsa, bool isPrivate);
 
-  std::string string_to_hex(const std::string& input);
+void generate_key(std::string& public_key, std::string& private_key);
 
-  std::string sha256_tmp(std::string s);
+std::string string_to_hex(const std::string& input);
 
-  std::string sha256(std::string s);
+std::string sha256_tmp(std::string s);
 
-}
-#endif //CRYPTO_H
+std::string sha256(std::string s);
+
+}  // namespace crypto
+#endif	// CRYPTO_H
